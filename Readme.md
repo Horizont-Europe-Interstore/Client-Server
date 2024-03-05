@@ -1,7 +1,14 @@
 # Client/Server
 
-Client/Server is a project designed for native implementation of NATS and IEEE2030.5.
-It supports communication over NATS and mapping of messages to IEEE2030.5 objects.
+Interoperable client/server is designed to provide an open source, out-of-the-box support for IEEE2030.5 communication between devices and EMS systems.
+The objectives of the interoperable client/server are to:
+- Provide an open source, out-of-the-box support for IEEE2030.5 communication between devices and EMS systems. The objective is to provide support for IEEE2030.5 messages in original XML format, as well as IEEE2030.5 in JSON format.
+- Provide support for next generation NATS messaging as a communication protocol between devices and EMS systems, superseding other communication mechanisms (such as REST over HTTP) and enabling message-driven, loosely coupled and scalable communication platform.
+- Provide a reference implementation as an open-source project, available on GitHub.
+
+In this specification we have presented the architecture for the interoperable client/server (we will use the wording client/server in the rest of the document). It provides support for IEEE2030.5 messages in original XML format, as well as IEEE2030.5 in JSON format. It supports next generation NATS messaging as a communication protocol between devices and EMS systems, superseding other communication mechanisms (such as REST over HTTP) and enabling message-driven, loosely coupled and scalable communication platform.
+
+The document describes the software architecture of the interoperable client/server library, usage scenarios and interfaces it provides. Client/server is not a standalone software product, but a software library to be used within devise and/or EMS systems to implement IEEE2030.5 over NATS.
 
 ## Usage
 Client/Server can be used in the project by importing the project from Maven Central or by using the JAR.
