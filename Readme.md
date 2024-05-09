@@ -94,3 +94,6 @@ try {
     log.error("Failed to connect to NATS server", e);
 }
 ```
+
+# License
+MIT
