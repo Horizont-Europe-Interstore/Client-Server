@@ -1,4 +1,4 @@
-# Client/Server
+# Interoperable Client/Server for IEEE2030.5 communication between devices and EMS systems
 
 Interoperable client/server is designed to provide an open source, out-of-the-box support for IEEE2030.5 communication between devices and EMS systems.
 The objectives of the interoperable client/server are to:
