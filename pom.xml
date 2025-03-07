@@ -6,12 +6,11 @@
 
     <groupId>si.sunesis.interoperability.clientserver</groupId>
     <artifactId>client-server</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>client</module>
         <module>server</module>
-        <module>client-server-common</module>
     </modules>
 
     <properties>
@@ -19,40 +18,42 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <lombok.version>1.18.30</lombok.version>
+        <org.projectlombok.lombok.version>1.18.36</org.projectlombok.lombok.version>
 
         <kumuluzee.version>4.1.0</kumuluzee.version>
-        <kumuluzee-logs.version>1.4.6</kumuluzee-logs.version>
+        <com.kumuluz.ee.logs.kumuluzee.logs.log4j2.version>1.4.6</com.kumuluz.ee.logs.kumuluzee.logs.log4j2.version>
 
-        <jakarta-xml.bind-api.version>4.0.0</jakarta-xml.bind-api.version>
-        <jaxb-impl.version>4.0.3</jaxb-impl.version>
-        <jaxb2-maven-plugin.version>3.1.0</jaxb2-maven-plugin.version>
+        <org.codehaus.mojo.jaxb2.maven.plugin.version>3.2.0</org.codehaus.mojo.jaxb2.maven.plugin.version>
+        <jakarta.xml.bind.jakarta.xml.bind-api.version>4.0.2</jakarta.xml.bind.jakarta.xml.bind-api.version>
+        <com.sun.xml.bind.jaxb.impl.version>4.0.3</com.sun.xml.bind.jaxb.impl.version>
+
+        <si.sunesis.interoperability.common.version>1.2.0-SNAPSHOT</si.sunesis.interoperability.common.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <version>${org.projectlombok.lombok.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.kumuluz.ee.logs</groupId>
             <artifactId>kumuluzee-logs-log4j2</artifactId>
-            <version>${kumuluzee-logs.version}</version>
+            <version>${com.kumuluz.ee.logs.kumuluzee.logs.log4j2.version}</version>
         </dependency>
 
         <dependency>
             <groupId>si.sunesis.interoperability.common</groupId>
             <artifactId>common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${si.sunesis.interoperability.common.version}</version>
         </dependency>
 
         <dependency>
             <groupId>si.sunesis.interoperability.common</groupId>
             <artifactId>nats</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${si.sunesis.interoperability.common.version}</version>
         </dependency>
 
     </dependencies>
@@ -78,25 +79,20 @@
             <dependency>
                 <artifactId>kumuluzee-logs-log4j2</artifactId>
                 <groupId>com.kumuluz.ee.logs</groupId>
-                <version>${kumuluzee-logs.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kumuluz.ee.version</groupId>
-                <artifactId>kumuluzee-version</artifactId>
-                <version>${kumuluzee-version.version}</version>
+                <version>${com.kumuluz.ee.logs.kumuluzee.logs.log4j2.version}</version>
             </dependency>
 
             <!-- JAXB -->
             <dependency>
                 <groupId>jakarta.xml.bind</groupId>
                 <artifactId>jakarta.xml.bind-api</artifactId>
-                <version>${jakarta-xml.bind-api.version}</version>
+                <version>${jakarta.xml.bind.jakarta.xml.bind-api.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.sun.xml.bind</groupId>
                 <artifactId>jaxb-impl</artifactId>
-                <version>${jaxb-impl.version}</version>
+                <version>${com.sun.xml.bind.jaxb.impl.version}</version>
                 <scope>runtime</scope>
             </dependency>
         </dependencies>
