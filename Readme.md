@@ -10,6 +10,17 @@ In this specification we have presented the architecture for the interoperable c
 
 The document describes the software architecture of the interoperable client/server library, usage scenarios and interfaces it provides. Client/server is not a standalone software product, but a software library to be used within devise and/or EMS systems to implement IEEE2030.5 over NATS.
 
+##Prerequisites
+
+Please note that this library facilitates the communication *transport* (IEEE 2030.5 messages over NATS) between endpoints. It does **not** provide the core IEEE 2030.5 client or server logic itself.
+
+To effectively utilize this library, you must have existing IEEE 2030.5 client and server implementations operational. There are various options for setting up an IEEE 2030.5 server, including open-source solutions. One such example is the GridAPPS-D IEEE 2030.5 Server:
+
+*   **GitHub:** [https://github.com/quantumscript/IEEE_2030_5_gridappsd_server](https://github.com/quantumscript/IEEE_2030_5_gridappsd_server)
+*   **PyPI:** [https://pypi.org/project/gridappsd-2030-5/](https://pypi.org/project/gridappsd-2030-5/)
+
+You will need to ensure your chosen IEEE 2030.5 client and server are running before integrating this library for NATS-based communication.
+
 ## Usage
 Client/Server can be used in the project by importing the project from Maven Central or by using the JAR.
 
