@@ -29,27 +29,49 @@ import si.sunesis.interoperability.common.ieee2030dot5.IEEEObjectFactory;
 import si.sunesis.interoperability.nats.NatsConnection;
 
 /**
+ * Example class demonstrating how to use the Server class for IEEE2030.5 communication.
+ * This class shows how to connect to a NATS server, subscribe to messages, process IEEE2030.5 events,
+ * and publish responses using the Server component.
+ * 
  * @author David Trafela, Sunesis
  * @since 1.0.0
  */
 @Slf4j
 public class Example {
 
+    /**
+     * Main method that demonstrates the usage of the Server class.
+     * This example shows how to:
+     * 1. Connect to a NATS server
+     * 2. Create a Server instance
+     * 3. Subscribe to device events
+     * 4. Convert IEEE2030.5 XML messages to Java objects
+     * 5. Convert Java objects back to JSON format and publish
+     *
+     * @param args Command line arguments (not used)
+     */
     public static void main(String[] args) {
+        // Configure NATS connection options with server URL
         Options options = new Options.Builder().server("nats://localhost:4222").build();
 
+        // Create NATS connection
         NatsConnection natsConnection = new NatsConnection();
         try (Connection ignored = natsConnection.connectSync(options, false)) {
+            // Initialize the Server with the NATS connection
             Server server = new Server(natsConnection);
 
+            // Subscribe to device events on the "devices.event" subject
             server.subscribe("devices.event", message -> {
+                // Convert byte array to string
                 String msg = new String(message);
                 log.info("Received message: {}", msg);
 
+                // Parse XML message to IEEE2030.5 Event object
                 Event event = IEEEObjectFactory.fromXMLToIEEE(msg, Event.class);
                 // Do something with the event
 
                 try {
+                    // Convert Event object to JSON and publish to "events.event" subject
                     server.publish("events.event", IEEEObjectFactory.fromIEEEToJSON(event));
                 } catch (HandlerException e) {
                     log.error("Failed to publish event", e);

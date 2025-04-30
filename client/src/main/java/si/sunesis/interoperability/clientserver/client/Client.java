@@ -26,26 +26,54 @@ import si.sunesis.interoperability.nats.AbstractNatsRequestHandler;
 import si.sunesis.interoperability.nats.NatsConnection;
 
 /**
+ * Client class for IEEE2030.5 communication over NATS.
+ * This class extends AbstractNatsRequestHandler to handle NATS messaging for device-side communications.
+ * It allows devices to communicate with EMS systems using the IEEE2030.5 protocol through NATS.
+ *
  * @author David Trafela, Sunesis
  * @since 1.0.0
  */
+@Getter
 @Slf4j
 public class Client extends AbstractNatsRequestHandler {
 
-    @Getter
+    /**
+     * NATS connection used for communication with the EMS system.
+     */
     private final NatsConnection natsConnection;
 
+    /**
+     * Constructs a new Client instance with the specified NATS connection.
+     *
+     * @param natsConnection The NATS connection to use for communication
+     */
     public Client(NatsConnection natsConnection) {
         super(natsConnection);
 
         this.natsConnection = natsConnection;
     }
 
+    /**
+     * Processes a stream request received from the NATS stream.
+     * Override this method to implement custom stream request handling logic.
+     *
+     * @param subject The subject the message was received on
+     * @param bytes   The message payload as a byte array
+     * @return The response to be sent back, or null if no response is needed
+     */
     @Override
     public String processStreamRequest(String subject, byte[] bytes) {
         return null;
     }
 
+    /**
+     * Processes a reply request received from the NATS request-reply pattern.
+     * Override this method to implement custom request-reply handling logic.
+     *
+     * @param subject The subject the message was received on
+     * @param bytes   The message payload as a byte array
+     * @return The response to be sent back, or null if no response is needed
+     */
     @Override
     public String processReplyRequest(String subject, byte[] bytes) {
         return null;
